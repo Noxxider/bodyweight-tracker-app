@@ -1,1 +1,1 @@
-"# Bodyweight Tracker App: Input your bodyweight data and see trends!" 
+Bodyweight Tracker App: Input your bodyweight data and see trends!
