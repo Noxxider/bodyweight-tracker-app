@@ -1,1 +1,33 @@
 // app global css in SCSS form
+
+.large-screen-only {
+    @media (max-width: $breakpoint-xl-min) {
+        display: none;
+    }
+
+    @media (min-width: $breakpoint-xs-max) {
+        display: block;
+    }
+}
+
+.small-screen-only {
+    @media (max-width: $breakpoint-xs-max) {
+        display: block;
+    }
+
+    @media (min-width: $breakpoint-xs-max) {
+        display: none;
+        render: none;
+    }
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row
+}
+
+.full-width {
+    width: 100%;
+  }
+  
