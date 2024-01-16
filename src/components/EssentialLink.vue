@@ -1,20 +1,11 @@
 <template>
-  <q-item
-    clickable
-    tag="a"
-    target="_blank"
-    :href="link"
-  >
-    <q-item-section
-      v-if="icon"
-      avatar
-    >
-      <q-icon :name="icon" />
-    </q-item-section>
+  <q-item clickable tag="a" target="_blank" :href="link">
+    <div class="q-my-auto" v-if="icon" avatar style="height: 24px">
+      <q-icon size="24px" :name="icon" />
+    </div>
 
-    <q-item-section>
-      <q-item-label>{{ title }}</q-item-label>
-      <q-item-label caption>{{ caption }}</q-item-label>
+    <q-item-section class="q-ml-md">
+      <div class="q-my-auto">{{ title }}</div>
     </q-item-section>
   </q-item>
 </template>

@@ -2,13 +2,64 @@
   <q-layout class="layout" view="lHh Lpr lFf">
     <q-header>
       <q-toolbar style="align-items: center">
+        <div
+          class="large-screen-only"
+          style="display: flex; align-items: center"
+        >
+          <div
+            class="large-screen-only text-h6 text-weight-medium q-ml-md q-my-auto"
+          >
+            Bodyweight Tracker App by Vino
+          </div>
+          <a
+            href="https://www.github.com/Noxxider"
+            target="_blank"
+            class="no-decoration"
+          >
+            <q-btn
+              class="large-screen-only q-px-xl q-ml-xl"
+              no-caps
+              text-color="white"
+              label="GitHub"
+              style="padding: 8px 12px"
+              unelevated
+            />
+          </a>
 
+          <a href="mailto:ravino.juwono@gmail.com" class="no-decoration">
+            <q-btn
+              class="large-screen-only q-px-xl q-ml-xl"
+              no-caps
+              text-color="white"
+              label="Email"
+              style="padding: 8px 12px"
+              unelevated
+            />
+          </a>
+        </div>
+
+        <div class="small-screen-only q-mx-auto full-width">
+          <div class="flex justify-between text-h6">
+            <div>Bodyweight Tracker App by Vino</div>
+
+            <q-btn
+              flat
+              no-caps
+              dense
+              icon="menu"
+              style="color: #262626"
+              aria-label="Menu"
+              @click="toggleLeftDrawer"
+              class="small-screen-only q-my-auto"
+            />
+          </div>
+        </div>
       </q-toolbar>
     </q-header>
 
     <q-drawer v-model="leftDrawerOpen" :width="200" bordered behavior="mobile">
       <q-list>
-        <div class="text-h6 q-pa-md" header>Pages</div>
+        <div class="text-h6 q-pa-md" header>Bodyweight Tracker App by Vino</div>
         <q-separator />
         <EssentialLink
           class="q-mt-sm"
@@ -31,46 +82,19 @@ import EssentialLink from "components/EssentialLink.vue";
 
 const linksList = [
   {
-    title: "Docs",
-    caption: "quasar.dev",
-    icon: "school",
-    link: "https://quasar.dev",
+    title: "App",
+    icon: "person",
+    link: "/",
   },
   {
-    title: "Github",
-    caption: "github.com/quasarframework",
-    icon: "code",
-    link: "https://github.com/quasarframework",
+    title: "Email",
+    icon: "mail",
+    link: "mailto:ravino.juwono@gmail.com",
   },
   {
-    title: "Discord Chat Channel",
-    caption: "chat.quasar.dev",
-    icon: "chat",
-    link: "https://chat.quasar.dev",
-  },
-  {
-    title: "Forum",
-    caption: "forum.quasar.dev",
-    icon: "record_voice_over",
-    link: "https://forum.quasar.dev",
-  },
-  {
-    title: "Twitter",
-    caption: "@quasarframework",
-    icon: "rss_feed",
-    link: "https://twitter.quasar.dev",
-  },
-  {
-    title: "Facebook",
-    caption: "@QuasarFramework",
-    icon: "public",
-    link: "https://facebook.quasar.dev",
-  },
-  {
-    title: "Quasar Awesome",
-    caption: "Community Quasar projects",
-    icon: "favorite",
-    link: "https://awesome.quasar.dev",
+    title: "GitHub",
+    icon: "widgets",
+    link: "https://www.github.com/Noxxider",
   },
 ];
 
@@ -94,3 +118,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.no-decoration {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Keeps the text color consistent with your button */
+}
+</style>
