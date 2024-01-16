@@ -1,10 +1,10 @@
 <template>
   <q-page class="flex flex-center">
-    <div style="min-width: 400px">
-      <div class="text-h6 text-weight-medium text-center full-width q-mb-md">
+    <div  class="q-px-md full-width">
+      <div class="text-h6 text-weight-bold text-center full-width q-mb-md" >
         Bodyweight Tracker
       </div>
-      <div>
+      <div style="max-width: 400px" class="q-mx-auto">
         <q-input
           class="q-mb-md"
           outlined
@@ -14,6 +14,7 @@
           label="Enter Weights (kg)"
           hint="Enter weights separated by spaces (e.g., 70 70.2 70.1 70.4)"
         />
+
         <q-input
           filled
           readonly
@@ -23,7 +24,11 @@
           :rules="[validateDate]"
         >
           <template v-slot:append>
-            <q-icon name="event" class="cursor-pointer">
+            <q-icon
+              name="event"
+              class="cursor-pointer"
+              hint="Press calendar symbol to choose a start date"
+            >
               <q-popup-proxy
                 cover
                 transition-show="scale"
@@ -49,9 +54,9 @@
           unelevated
         />
       </div>
-      <div v-if="graphVisible">
+      <div v-if="graphVisible" style="max-width: 800px" class="q-mx-auto q-mt-xl"> 
         <ApexCharts
-          width="500"
+          style="max-width: 100%"
           :options="options"
           :series="options.series"
         ></ApexCharts>
@@ -70,33 +75,30 @@ export default defineComponent({
   setup() {
     var weightInput = ref("");
     var startDate = ref("");
-    const graphVisible = ref(true);
+    const graphVisible = ref(false);
 
     var options = {
       chart: {
-        width: "100%",
-        type: "area",
-        animations: {
-          initialAnimation: {
-            enabled: false,
-          },
-        },
+        type: "line",
       },
       series: [
         {
           name: "Series 1",
-          data: [
-            [1486684800000, 34],
-            [1486771200000, 43],
-            [1486857600000, 31],
-            [1486944000000, 43],
-            [1487030400000, 33],
-            [1487116800000, 52],
-          ],
+          data: [],
         },
       ],
       xaxis: {
+        title: { text: "Date" },
         type: "datetime",
+      },
+      yaxis: {
+        title: { text: "Weight (kg)" },
+      },
+      title: {
+        text: "Bodyweight trend since",
+      },
+      stroke: {
+        curve: "smooth",
       },
     };
 
@@ -133,9 +135,14 @@ export default defineComponent({
       ]);
 
       // Update the series data
-      options.value.series[0].data = dataPoints;
-
-      console.log(options.value.series[0].data);
+      options.series[0].data = dataPoints;
+      options.title.text =
+        "Bodyweight Trend Since " +
+        new Date(dateLabels[0]).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
       graphVisible.value = true;
     };
 

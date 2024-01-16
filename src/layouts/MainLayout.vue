@@ -2,68 +2,7 @@
   <q-layout class="layout" view="lHh Lpr lFf">
     <q-header>
       <q-toolbar style="align-items: center">
-        <div class="small-screen-only q-mx-auto full-width">
-          <div class="flex justify-between">
-            <q-btn to="/" flat>
-              <img
-                src="~assets/header.svg"
-                class="q-my-auto"
-                style="height: 24px; padding: 0px"
-              />
-            </q-btn>
 
-            <q-btn
-              flat
-              no-caps
-              dense
-              icon="menu"
-              style="color: #262626"
-              aria-label="Menu"
-              @click="toggleLeftDrawer"
-              class="small-screen-only q-my-auto"
-            />
-          </div>
-        </div>
-
-        <div
-          class="large-screen-only"
-          style="display: flex; align-items: center"
-        >
-          <q-btn to="/" class="large-screen-only q-ml-md" flat>
-            <img
-              src="~src\assets\header.svg"
-              class="q-my-auto"
-              style="height: 24px; padding: 0px"
-            />
-          </q-btn>
-          <q-btn
-            class="large-screen-only q-px-xl q-mx-xl"
-            no-caps
-            to="/"
-            text-color="dark"
-            label="Home"
-            style="padding: 8px 12px"
-            unelevated
-          />
-          <q-btn
-            class="large-screen-only q-px-xl"
-            no-caps
-            to="/contact"
-            text-color="dark"
-            label="Contact"
-            style="padding: 8px 12px"
-            unelevated
-          />
-          <q-btn
-            class="large-screen-only q-ml-xl"
-            no-caps
-            to="/resume"
-            color="accent"
-            label="Resume"
-            style="padding: 8px 16px"
-            unelevated
-          />
-        </div>
       </q-toolbar>
     </q-header>
 
