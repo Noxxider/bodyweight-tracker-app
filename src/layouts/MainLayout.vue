@@ -46,8 +46,7 @@
               flat
               no-caps
               dense
-              icon="menu"
-              style="color: #262626"
+              icon="menu" color="white"
               aria-label="Menu"
               @click="toggleLeftDrawer"
               class="small-screen-only q-my-auto"
